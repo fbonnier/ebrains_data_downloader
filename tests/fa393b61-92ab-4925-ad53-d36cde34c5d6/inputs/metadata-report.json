@@ -1,0 +1,37 @@
+{
+    "Metadata": {
+        "id": "fa393b61-92ab-4925-ad53-d36cde34c5d6",
+        "workdir": "/tmp/cwl-test/",
+        "workflow": {
+            "run": {
+                "url": null,
+                "path": "/tmp/cwl-test/"
+            },
+            "data": {
+                "url": null,
+                "path": "/tmp/cwl-test/"
+            }
+        },
+        "run": {
+            "code": [
+                {
+                    "url": "http://modeldb.science/eavBinDown?o=263259",
+                    "filepath": "/tmp/cwl-test/263259.zip",
+                    "path": "/tmp/cwl-test//code/263259/"
+                }
+            ],
+            "pre-instruction": "export PYTHONPATH=/tmp/cwl-test//code/263259/HH_project/:/tmp/cwl-test//code/263259/HH_project/single_cell_models/:/home/fbonnier/.local/lib/python3.8/site-packages:/home/fbonnier/opt/nest-simulator-2.20.0/lib/python3.8/site-packages; pip3 install matplotlib numpy==1.20.3",
+            "instruction": "python3 /tmp/cwl-test//code/263259/HH_project/network_simulations/ntwk_sim_demo.py --CONFIG 'HH_RS--HH_FS--CONFIG1' --tstop 5000 -f /tmp/cwl-test//code/263259/HH_project/network_simulations/data/example.npy",
+            "inputs": [],
+            "outputs": [],
+            "environment": {
+                "pip install": [],
+                "module deps": [],
+                "profiling configuration": []
+            }
+        },
+        "paper": "https://doi.org/10.1152/jn.00399.2019",
+        "homepage": "https://modeldb.science/263259?tab=1",
+        "documentation": null
+    }
+}

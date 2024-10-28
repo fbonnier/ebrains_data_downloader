@@ -1,0 +1,605 @@
+{
+    "Metadata": {
+        "id": "4fc81729-ae1e-4eb0-bc30-9b9f8afa7fa3",
+        "workdir": "/tmp/cwl-test/",
+        "workflow": {
+            "run": {
+                "url": null,
+                "path": "/tmp/cwl-test/"
+            },
+            "data": {
+                "url": null,
+                "path": "/tmp/cwl-test/"
+            }
+        },
+        "run": {
+            "code": [
+                {
+                    "url": "https://github.com/OpenSourceBrain/PotjansDiesmann2014/archive/refs/heads/master.zip",
+                    "filepath": "/tmp/cwl-test/master.zip",
+                    "path": "/tmp/cwl-test//code/master/"
+                }
+            ],
+            "pre-instruction": "pip3 install matplotlib==3.5.2",
+            "instruction": "cd code/master/PotjansDiesmann2014-master/PyNEST; python3 run_microcircuit.py",
+            "inputs": [],
+            "outputs": [
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/Comparison.md",
+                    "hash": null,
+                    "filename": "Comparison.md",
+                    "size": 3165
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/README.md",
+                    "hash": null,
+                    "filename": "README.md",
+                    "size": 2039
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/.gitignore",
+                    "hash": null,
+                    "filename": ".gitignore",
+                    "size": 609
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/CITATION.md",
+                    "hash": null,
+                    "filename": "CITATION.md",
+                    "size": 730
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/TestedRates.png",
+                    "hash": null,
+                    "filename": "TestedRates.png",
+                    "size": 46620
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/LICENSE",
+                    "hash": null,
+                    "filename": "LICENSE",
+                    "size": 35149
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/.travis.yml",
+                    "hash": null,
+                    "filename": ".travis.yml",
+                    "size": 1334
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/_osb.yml",
+                    "hash": null,
+                    "filename": "_osb.yml",
+                    "size": 41
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/compare_tests.py",
+                    "hash": null,
+                    "filename": "compare_tests.py",
+                    "size": 1293
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/make_tests.sh",
+                    "hash": null,
+                    "filename": "make_tests.sh",
+                    "size": 219
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/.github/workflows/omv-ci.yml",
+                    "hash": null,
+                    "filename": "omv-ci.yml",
+                    "size": 1605
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/PyNEST/sim_params.py",
+                    "hash": null,
+                    "filename": "sim_params.py",
+                    "size": 1965
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/PyNEST/README.rst",
+                    "hash": null,
+                    "filename": "README.rst",
+                    "size": 7141
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/PyNEST/microcircuit.png",
+                    "hash": null,
+                    "filename": "microcircuit.png",
+                    "size": 364327
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/PyNEST/.test.pynest.mep",
+                    "hash": null,
+                    "filename": ".test.pynest.mep",
+                    "size": 679
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/PyNEST/network.py",
+                    "hash": null,
+                    "filename": "network.py",
+                    "size": 21364
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/PyNEST/raster_plot.png",
+                    "hash": null,
+                    "filename": "raster_plot.png",
+                    "size": 321408
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/PyNEST/.test.pynest.omt",
+                    "hash": null,
+                    "filename": ".test.pynest.omt",
+                    "size": 3100
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/PyNEST/network_params.py",
+                    "hash": null,
+                    "filename": "network_params.py",
+                    "size": 6136
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/PyNEST/stimulus_params.py",
+                    "hash": null,
+                    "filename": "stimulus_params.py",
+                    "size": 2283
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/PyNEST/box_plot.png",
+                    "hash": null,
+                    "filename": "box_plot.png",
+                    "size": 74074
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/PyNEST/helpers.py",
+                    "hash": null,
+                    "filename": "helpers.py",
+                    "size": 13631
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/PyNEST/run_microcircuit.py",
+                    "hash": null,
+                    "filename": "run_microcircuit.py",
+                    "size": 3878
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/PyNEST/reference_data/spike_recorder-7720-0.dat",
+                    "hash": null,
+                    "filename": "spike_recorder-7720-0.dat",
+                    "size": 114974
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/PyNEST/reference_data/rate2.dat",
+                    "hash": null,
+                    "filename": "rate2.dat",
+                    "size": 54800
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/PyNEST/reference_data/spike_recorder-7723-0.dat",
+                    "hash": null,
+                    "filename": "spike_recorder-7723-0.dat",
+                    "size": 11271
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/PyNEST/reference_data/rate4.dat",
+                    "hash": null,
+                    "filename": "rate4.dat",
+                    "size": 12125
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/PyNEST/reference_data/rate1.dat",
+                    "hash": null,
+                    "filename": "rate1.dat",
+                    "size": 14575
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/PyNEST/reference_data/spike_recorder-7722-0.dat",
+                    "hash": null,
+                    "filename": "spike_recorder-7722-0.dat",
+                    "size": 37543
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/PyNEST/reference_data/spike_recorder-7719-0.dat",
+                    "hash": null,
+                    "filename": "spike_recorder-7719-0.dat",
+                    "size": 14929
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/PyNEST/reference_data/spike_recorder-7725-0.dat",
+                    "hash": null,
+                    "filename": "spike_recorder-7725-0.dat",
+                    "size": 27558
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/PyNEST/reference_data/spike_recorder-7718-0.dat",
+                    "hash": null,
+                    "filename": "spike_recorder-7718-0.dat",
+                    "size": 11792
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/PyNEST/reference_data/rate7.dat",
+                    "hash": null,
+                    "filename": "rate7.dat",
+                    "size": 7375
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/PyNEST/reference_data/rate6.dat",
+                    "hash": null,
+                    "filename": "rate6.dat",
+                    "size": 36000
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/PyNEST/reference_data/rate3.dat",
+                    "hash": null,
+                    "filename": "rate3.dat",
+                    "size": 13700
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/PyNEST/reference_data/spike_recorder-7721-0.dat",
+                    "hash": null,
+                    "filename": "spike_recorder-7721-0.dat",
+                    "size": 36271
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/PyNEST/reference_data/rate5.dat",
+                    "hash": null,
+                    "filename": "rate5.dat",
+                    "size": 2650
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/PyNEST/reference_data/rate0.dat",
+                    "hash": null,
+                    "filename": "rate0.dat",
+                    "size": 51700
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/PyNEST/reference_data/spike_recorder-7724-0.dat",
+                    "hash": null,
+                    "filename": "spike_recorder-7724-0.dat",
+                    "size": 15192
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/PyNEST/reference_data/population_nodeids.dat",
+                    "hash": null,
+                    "filename": "population_nodeids.dat",
+                    "size": 77
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/osbSessions/main.osb.json",
+                    "hash": null,
+                    "filename": "main.osb.json",
+                    "size": 5088
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/osbSessions/MicrocircuitNoInput_2pcnt_MODELf32339edc42e9df4a4be1ec00eeee8e4.xmi",
+                    "hash": null,
+                    "filename": "MicrocircuitNoInput_2pcnt_MODELf32339edc42e9df4a4be1ec00eeee8e4.xmi",
+                    "size": 1074
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/osbSessions/script.js",
+                    "hash": null,
+                    "filename": "script.js",
+                    "size": 54
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/images/pynest_rasterplot_0.1.png",
+                    "hash": null,
+                    "filename": "pynest_rasterplot_0.1.png",
+                    "size": 672935
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/images/pynest_rasterplot_1.0.png",
+                    "hash": null,
+                    "filename": "pynest_rasterplot_1.0.png",
+                    "size": 961599
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/images/pynest_firing_rates_0.1.png",
+                    "hash": null,
+                    "filename": "pynest_firing_rates_0.1.png",
+                    "size": 71529
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/images/nestsli_rasterplot_0.1.png",
+                    "hash": null,
+                    "filename": "nestsli_rasterplot_0.1.png",
+                    "size": 46857
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/images/pynest_firing_rates_1.0.png",
+                    "hash": null,
+                    "filename": "pynest_firing_rates_1.0.png",
+                    "size": 73055
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/images/nestsli_firing_rates_0.1.png",
+                    "hash": null,
+                    "filename": "nestsli_firing_rates_0.1.png",
+                    "size": 13515
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/images/nestsli_firing_rates_1.0.png",
+                    "hash": null,
+                    "filename": "nestsli_firing_rates_1.0.png",
+                    "size": 12440
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/images/nestsli_rasterplot_1.0.png",
+                    "hash": null,
+                    "filename": "nestsli_rasterplot_1.0.png",
+                    "size": 219010
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/images/pynn_nest_plots_1.0.png",
+                    "hash": null,
+                    "filename": "pynn_nest_plots_1.0.png",
+                    "size": 70405
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/PyNN/sim_params.py",
+                    "hash": null,
+                    "filename": "sim_params.py",
+                    "size": 1208
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/PyNN/README.md",
+                    "hash": null,
+                    "filename": "README.md",
+                    "size": 3728
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/PyNN/.test.pynn.mep",
+                    "hash": null,
+                    "filename": ".test.pynn.mep",
+                    "size": 742
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/PyNN/network.py",
+                    "hash": null,
+                    "filename": "network.py",
+                    "size": 10287
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/PyNN/plotting.py",
+                    "hash": null,
+                    "filename": "plotting.py",
+                    "size": 2883
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/PyNN/validation_microcircuit.py",
+                    "hash": null,
+                    "filename": "validation_microcircuit.py",
+                    "size": 4832
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/PyNN/network_params.py",
+                    "hash": null,
+                    "filename": "network_params.py",
+                    "size": 8477
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/PyNN/.test.pynnnest.omt",
+                    "hash": null,
+                    "filename": ".test.pynnnest.omt",
+                    "size": 2517
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/PyNN/microcircuit.py",
+                    "hash": null,
+                    "filename": "microcircuit.py",
+                    "size": 5544
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/PyNN/connectivity.py",
+                    "hash": null,
+                    "filename": "connectivity.py",
+                    "size": 947
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/PyNN/.test.pynnnest.comparison.omt",
+                    "hash": null,
+                    "filename": ".test.pynnnest.comparison.omt",
+                    "size": 2667
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/PyNN/scaling.py",
+                    "hash": null,
+                    "filename": "scaling.py",
+                    "size": 2280
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/PyNN/run_microcircuit.py",
+                    "hash": null,
+                    "filename": "run_microcircuit.py",
+                    "size": 1304
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/NeuroML2/MicrocircuitNoInput_2pcnt.net.nml.h5",
+                    "hash": null,
+                    "filename": "MicrocircuitNoInput_2pcnt.net.nml.h5",
+                    "size": 1047741
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/NeuroML2/MicrocircuitNoInput_2pcnt.net.nml",
+                    "hash": null,
+                    "filename": "MicrocircuitNoInput_2pcnt.net.nml",
+                    "size": 15429542
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/NeuroML2/.test.validate.omt",
+                    "hash": null,
+                    "filename": ".test.validate.omt",
+                    "size": 330
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/NeuroML2/MicrocircuitNoInput_5pcnt.net.nml.h5",
+                    "hash": null,
+                    "filename": "MicrocircuitNoInput_5pcnt.net.nml.h5",
+                    "size": 2097111
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/NeuroML2/MicrocircuitNoInput_10pcnt.net.nml.h5",
+                    "hash": null,
+                    "filename": "MicrocircuitNoInput_10pcnt.net.nml.h5",
+                    "size": 3861079
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/NEST_SLI/user_params.sli",
+                    "hash": null,
+                    "filename": "user_params.sli",
+                    "size": 1093
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/NEST_SLI/README.md",
+                    "hash": null,
+                    "filename": "README.md",
+                    "size": 5445
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/NEST_SLI/.test.nestsli.mep",
+                    "hash": null,
+                    "filename": ".test.nestsli.mep",
+                    "size": 736
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/NEST_SLI/sim_params.sli",
+                    "hash": null,
+                    "filename": "sim_params.sli",
+                    "size": 4075
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/NEST_SLI/run_microcircuit.sh",
+                    "hash": null,
+                    "filename": "run_microcircuit.sh",
+                    "size": 1887
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/NEST_SLI/.test.nestsli.omt",
+                    "hash": null,
+                    "filename": ".test.nestsli.omt",
+                    "size": 3460
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/NEST_SLI/network_params.sli",
+                    "hash": null,
+                    "filename": "network_params.sli",
+                    "size": 6833
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/NEST_SLI/microcircuit.sli",
+                    "hash": null,
+                    "filename": "microcircuit.sli",
+                    "size": 17810
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/NEST_SLI/spike_analysis.py",
+                    "hash": null,
+                    "filename": "spike_analysis.py",
+                    "size": 6449
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/NEST_SLI/test/create_large_network_sim.sh",
+                    "hash": null,
+                    "filename": "create_large_network_sim.sh",
+                    "size": 1825
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/master/PotjansDiesmann2014-master/NEST_SLI/test/create_small_network_sim.sh",
+                    "hash": null,
+                    "filename": "create_small_network_sim.sh",
+                    "size": 1765
+                }
+            ],
+            "environment": {
+                "pip install": [],
+                "module deps": [],
+                "profiling configuration": []
+            }
+        },
+        "paper": null,
+        "homepage": null,
+        "documentation": null
+    }
+}

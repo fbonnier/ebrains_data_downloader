@@ -1,0 +1,451 @@
+{
+    "Metadata": {
+        "id": "fa393b61-92ab-4925-ad53-d36cde34c5d6",
+        "workdir": "/tmp/cwl-test/",
+        "workflow": {
+            "run": {
+                "url": null,
+                "path": "/tmp/cwl-test/"
+            },
+            "data": {
+                "url": null,
+                "path": "/tmp/cwl-test/"
+            }
+        },
+        "run": {
+            "code": [
+                {
+                    "url": "http://modeldb.science/eavBinDown?o=263259",
+                    "filepath": "/tmp/cwl-test/263259.zip",
+                    "path": "/tmp/cwl-test//code/263259/"
+                }
+            ],
+            "pre-instruction": "export PYTHONPATH=/tmp/cwl-test//code/263259/HH_project/:/tmp/cwl-test//code/263259/HH_project/single_cell_models/:/home/fbonnier/.local/lib/python3.8/site-packages:/home/fbonnier/opt/nest-simulator-2.20.0/lib/python3.8/site-packages; pip3 install matplotlib numpy==1.20.3",
+            "instruction": "python3 /tmp/cwl-test//code/263259/HH_project/network_simulations/ntwk_sim_demo.py --CONFIG 'HH_RS--HH_FS--CONFIG1' --tstop 5000 -f /tmp/cwl-test//code/263259/HH_project/network_simulations/data/example.npy",
+            "inputs": [],
+            "outputs": [
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/263259/HH_project/Readme.txt",
+                    "hash": null,
+                    "filename": "Readme.txt",
+                    "size": 885
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/263259/HH_project/TF_calculus/Plot_both.py",
+                    "hash": null,
+                    "filename": "Plot_both.py",
+                    "size": 1001
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/263259/HH_project/TF_calculus/Single_neuron_TF_RS.py",
+                    "hash": null,
+                    "filename": "Single_neuron_TF_RS.py",
+                    "size": 1930
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/263259/HH_project/TF_calculus/TF_B_HHFS.npy",
+                    "hash": null,
+                    "filename": "TF_B_HHFS.npy",
+                    "size": 384
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/263259/HH_project/TF_calculus/TF_B_HHFS_th.npy",
+                    "hash": null,
+                    "filename": "TF_B_HHFS_th.npy",
+                    "size": 1680
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/263259/HH_project/TF_calculus/TF_B_HHRS_th.npy",
+                    "hash": null,
+                    "filename": "TF_B_HHRS_th.npy",
+                    "size": 1680
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/263259/HH_project/TF_calculus/TF_B.npy",
+                    "hash": null,
+                    "filename": "TF_B.npy",
+                    "size": 240
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/263259/HH_project/TF_calculus/Mean_field_TF.py",
+                    "hash": null,
+                    "filename": "Mean_field_TF.py",
+                    "size": 2460
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/263259/HH_project/TF_calculus/Single_neuron_TF_FS.py",
+                    "hash": null,
+                    "filename": "Single_neuron_TF_FS.py",
+                    "size": 1904
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/263259/HH_project/TF_calculus/Single_neuron_TF.py",
+                    "hash": null,
+                    "filename": "Single_neuron_TF.py",
+                    "size": 1934
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/263259/HH_project/TF_calculus/TF_B_HHRS.npy",
+                    "hash": null,
+                    "filename": "TF_B_HHRS.npy",
+                    "size": 336
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/263259/HH_project/mean_field/stability.npy",
+                    "hash": null,
+                    "filename": "stability.npy",
+                    "size": 96080
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/263259/HH_project/mean_field/euler_method.py",
+                    "hash": null,
+                    "filename": "euler_method.py",
+                    "size": 7071
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/263259/HH_project/mean_field/__init__.pyc",
+                    "hash": null,
+                    "filename": "__init__.pyc",
+                    "size": 112
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/263259/HH_project/mean_field/master_equation.py",
+                    "hash": null,
+                    "filename": "master_equation.py",
+                    "size": 7461
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/263259/HH_project/mean_field/__init__.py",
+                    "hash": null,
+                    "filename": "__init__.py",
+                    "size": 0
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/263259/HH_project/mean_field/master_equation.pyc",
+                    "hash": null,
+                    "filename": "master_equation.pyc",
+                    "size": 7792
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/263259/HH_project/mean_field/euler_method.pyc",
+                    "hash": null,
+                    "filename": "euler_method.pyc",
+                    "size": 5206
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/263259/HH_project/single_cell_models/cell_library.pyc",
+                    "hash": null,
+                    "filename": "cell_library.pyc",
+                    "size": 2769
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/263259/HH_project/single_cell_models/Example.py",
+                    "hash": null,
+                    "filename": "Example.py",
+                    "size": 488
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/263259/HH_project/single_cell_models/cell_library.py",
+                    "hash": null,
+                    "filename": "cell_library.py",
+                    "size": 3781
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/263259/HH_project/single_cell_models/cell_construct.pyc",
+                    "hash": null,
+                    "filename": "cell_construct.pyc",
+                    "size": 3640
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/263259/HH_project/single_cell_models/__init__.pyc",
+                    "hash": null,
+                    "filename": "__init__.pyc",
+                    "size": 120
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/263259/HH_project/single_cell_models/__init__.py",
+                    "hash": null,
+                    "filename": "__init__.py",
+                    "size": 0
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/263259/HH_project/single_cell_models/cell_construct.py",
+                    "hash": null,
+                    "filename": "cell_construct.py",
+                    "size": 4451
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/263259/HH_project/network_simulations/waveform_input.py",
+                    "hash": null,
+                    "filename": "waveform_input.py",
+                    "size": 4722
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/263259/HH_project/network_simulations/sngle_neuron.py",
+                    "hash": null,
+                    "filename": "sngle_neuron.py",
+                    "size": 4277
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/263259/HH_project/network_simulations/compare_with_mean_field.py",
+                    "hash": null,
+                    "filename": "compare_with_mean_field.py",
+                    "size": 17392
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/263259/HH_project/network_simulations/plot_single_sim.py",
+                    "hash": null,
+                    "filename": "plot_single_sim.py",
+                    "size": 3882
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/263259/HH_project/network_simulations/plot_single_sim.pyc",
+                    "hash": null,
+                    "filename": "plot_single_sim.pyc",
+                    "size": 3776
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/263259/HH_project/network_simulations/__init__.pyc",
+                    "hash": null,
+                    "filename": "__init__.pyc",
+                    "size": 120
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/263259/HH_project/network_simulations/__init__.py",
+                    "hash": null,
+                    "filename": "__init__.py",
+                    "size": 0
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/263259/HH_project/network_simulations/time_varying_input.pyc",
+                    "hash": null,
+                    "filename": "time_varying_input.pyc",
+                    "size": 2711
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/263259/HH_project/network_simulations/time_varying_input.py",
+                    "hash": null,
+                    "filename": "time_varying_input.py",
+                    "size": 4042
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/263259/HH_project/network_simulations/ntwk_sim_demo.py",
+                    "hash": null,
+                    "filename": "ntwk_sim_demo.py",
+                    "size": 7748
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/263259/HH_project/network_simulations/compare_with_mean_field.pyc",
+                    "hash": null,
+                    "filename": "compare_with_mean_field.pyc",
+                    "size": 14278
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/263259/HH_project/network_simulations/HH_response.npy",
+                    "hash": null,
+                    "filename": "HH_response.npy",
+                    "size": 288128
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/263259/HH_project/network_simulations/ntwk_sim_demo.pyc",
+                    "hash": null,
+                    "filename": "ntwk_sim_demo.pyc",
+                    "size": 6714
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/263259/HH_project/network_simulations/waveform_input.pyc",
+                    "hash": null,
+                    "filename": "waveform_input.pyc",
+                    "size": 5482
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/263259/HH_project/network_simulations/data/example.npy",
+                    "hash": null,
+                    "filename": "example.npy",
+                    "size": 5835261
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/263259/HH_project/network_simulations/data/__for_folder_creation",
+                    "hash": null,
+                    "filename": "__for_folder_creation",
+                    "size": 0
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/263259/HH_project/network_simulations/data/waveform_input_example.npy",
+                    "hash": null,
+                    "filename": "waveform_input_example.npy",
+                    "size": 4300235
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/263259/HH_project/transfer_functions/theoretical_tools.py",
+                    "hash": null,
+                    "filename": "theoretical_tools.py",
+                    "size": 10661
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/263259/HH_project/transfer_functions/load_config.py",
+                    "hash": null,
+                    "filename": "load_config.py",
+                    "size": 1901
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/263259/HH_project/transfer_functions/__init__.pyc",
+                    "hash": null,
+                    "filename": "__init__.pyc",
+                    "size": 120
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/263259/HH_project/transfer_functions/__init__.py",
+                    "hash": null,
+                    "filename": "__init__.py",
+                    "size": 0
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/263259/HH_project/transfer_functions/load_config.pyc",
+                    "hash": null,
+                    "filename": "load_config.pyc",
+                    "size": 1940
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/263259/HH_project/transfer_functions/tf_simulation.pyc",
+                    "hash": null,
+                    "filename": "tf_simulation.pyc",
+                    "size": 10305
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/263259/HH_project/transfer_functions/tf_simulation.py",
+                    "hash": null,
+                    "filename": "tf_simulation.py",
+                    "size": 13551
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/263259/HH_project/transfer_functions/theoretical_tools.pyc",
+                    "hash": null,
+                    "filename": "theoretical_tools.pyc",
+                    "size": 8735
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/263259/HH_project/transfer_functions/data/__for_folder_creation",
+                    "hash": null,
+                    "filename": "__for_folder_creation",
+                    "size": 0
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/263259/HH_project/transfer_functions/data/HH_RS_CONFIG1_fit.npy",
+                    "hash": null,
+                    "filename": "HH_RS_CONFIG1_fit.npy",
+                    "size": 168
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/263259/HH_project/transfer_functions/data/HH_FS_CONFIG1_fit.npy",
+                    "hash": null,
+                    "filename": "HH_FS_CONFIG1_fit.npy",
+                    "size": 216
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/263259/HH_project/synapses_and_connectivity/syn_and_connec_library.py",
+                    "hash": null,
+                    "filename": "syn_and_connec_library.py",
+                    "size": 2193
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/263259/HH_project/synapses_and_connectivity/syn_and_connec_library.pyc",
+                    "hash": null,
+                    "filename": "syn_and_connec_library.pyc",
+                    "size": 2230
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/263259/HH_project/synapses_and_connectivity/syn_and_connec_construct.pyc",
+                    "hash": null,
+                    "filename": "syn_and_connec_construct.pyc",
+                    "size": 2452
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/263259/HH_project/synapses_and_connectivity/__init__.pyc",
+                    "hash": null,
+                    "filename": "__init__.pyc",
+                    "size": 127
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/263259/HH_project/synapses_and_connectivity/__init__.py",
+                    "hash": null,
+                    "filename": "__init__.py",
+                    "size": 0
+                },
+                {
+                    "url": null,
+                    "path": "/tmp/cwl-test/outputs/263259/HH_project/synapses_and_connectivity/syn_and_connec_construct.py",
+                    "hash": null,
+                    "filename": "syn_and_connec_construct.py",
+                    "size": 2313
+                }
+            ],
+            "environment": {
+                "pip install": [],
+                "module deps": [],
+                "profiling configuration": []
+            }
+        },
+        "paper": "https://doi.org/10.1152/jn.00399.2019",
+        "homepage": "https://modeldb.science/263259?tab=1",
+        "documentation": null
+    }
+}

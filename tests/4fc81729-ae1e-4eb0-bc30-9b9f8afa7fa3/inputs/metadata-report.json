@@ -1,0 +1,37 @@
+{
+    "Metadata": {
+        "id": "4fc81729-ae1e-4eb0-bc30-9b9f8afa7fa3",
+        "workdir": "/tmp/cwl-test/",
+        "workflow": {
+            "run": {
+                "url": null,
+                "path": "/tmp/cwl-test/"
+            },
+            "data": {
+                "url": null,
+                "path": "/tmp/cwl-test/"
+            }
+        },
+        "run": {
+            "code": [
+                {
+                    "url": "https://github.com/OpenSourceBrain/PotjansDiesmann2014/archive/refs/heads/master.zip",
+                    "filepath": "/tmp/cwl-test/master.zip",
+                    "path": "/tmp/cwl-test//code/master/"
+                }
+            ],
+            "pre-instruction": "pip3 install matplotlib==3.5.2",
+            "instruction": "cd code/master/PotjansDiesmann2014-master/PyNEST; python3 run_microcircuit.py",
+            "inputs": [],
+            "outputs": [],
+            "environment": {
+                "pip install": [],
+                "module deps": [],
+                "profiling configuration": []
+            }
+        },
+        "paper": null,
+        "homepage": null,
+        "documentation": null
+    }
+}
