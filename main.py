@@ -9,6 +9,7 @@ import tarfile
 import rarfile
 import shutil
 import re
+import traceback
 # from nilsimsa import Nilsimsa
 
 # Compare report files for regression tests
@@ -32,7 +33,7 @@ def compare_reports (test_report=None, reference_report=None):
                 exit(0)
 
     except Exception as e:
-        print (str("".join(traceback.format_exception(etype=type(e), value=e, tb=e.__traceback__))))
+        print (str("".join(traceback.format_exception(e))))
         exit (1)
     
 
