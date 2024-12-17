@@ -50,8 +50,7 @@ def download_data (url: str, filepath: str):
             data = response.read() # a `bytes` object
             out_file.write(data)
     except Exception as e:
-        print ("download_data")
-        print (e)
+        print (str("".join(traceback.format_exception(e))))
 
 # def compute_hash (filepath: str) -> str:
 #     filehash = None
@@ -117,25 +116,25 @@ if __name__ == "__main__":
     for icode in json_data["Metadata"]["run"]["code"]:
         assert(icode["url"] != None)
 
-        if icode["url"] and icode["filepath"]:
-            download_data(url=icode["url"], filepath=icode["filepath"])
+        if icode["url"] and icode["path"]:
+            download_data(url=icode["url"], filepath=icode["path"])
         try:
             # Unpack code to run
-            shutil.unpack_archive(icode["filepath"], icode["path"])
+            shutil.unpack_archive(icode["filename"], icode["path"])
         except Exception as e:
             print ("Shutil failed: " + str(e))
             print ("Trying Archiver")
-            os.system("arc -overwrite unarchive " + icode["filepath"] + " " + icode["path"])
+            os.system("arc -overwrite unarchive " + icode["filename"] + " " + icode["path"])
 
         # Control code as output
-        control_foler = json_data["Metadata"]["workdir"] + "/outputs/" + icode["filepath"].split("/")[-1].split(".")[0]
+        control_foler = json_data["Metadata"]["workdir"] + "/outputs/" + icode["filename"].split("/")[-1].split(".")[0]
         try:
             # Unpack control code as outputs
-            shutil.unpack_archive(icode["filepath"], control_foler)
+            shutil.unpack_archive(icode["filename"], control_foler)
         except Exception as e:
             print ("Shutil failed for control group: " + str(e))
             print ("Trying Archiver")
-            os.system("arc -overwrite unarchive " + icode["filepath"] + " " + control_foler)
+            os.system("arc -overwrite unarchive " + icode["filename"] + " " + control_foler)
 
         # Add all files of code as potential outputs/results
         try:
