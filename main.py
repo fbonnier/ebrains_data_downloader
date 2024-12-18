@@ -147,7 +147,7 @@ if __name__ == "__main__":
                 for filename in files:
                     relative_path = os.path.join( current_dir, filename )
                     absolute_path = os.path.abspath( relative_path )
-                    json_data["Metadata"]["run"]["outputs"].append({"url": None,  "path": str(absolute_path), "filepath": absolute_path + filename, "hash": None})
+                    json_data["Metadata"]["run"]["outputs"].append({"url": None,  "path": str(absolute_path), "filepath": str(absolute_path), "hash": None})
                     # print (absolute_path)
         except Exception as e:
             print (e)
