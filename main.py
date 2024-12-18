@@ -91,25 +91,25 @@ if __name__ == "__main__":
     workflow_run_file = json_data["Metadata"]["workflow"]["run"]
     workflow_data_file = json_data["Metadata"]["workflow"]["data"]
     # Download workflow runfile
-    if workflow_run_file["url"] and workflow_run_file["path"]:
-        download_data(workflow_run_file["url"], workflow_run_file["path"])
+    if workflow_run_file["url"] and workflow_run_file["filepath"]:
+        download_data(workflow_run_file["url"], workflow_run_file["filepath"])
     # Download workflow datafile
-    if workflow_data_file["url"] and workflow_data_file["path"]:
-        download_data(workflow_data_file["url"], workflow_data_file["path"])
+    if workflow_data_file["url"] and workflow_data_file["filepath"]:
+        download_data(workflow_data_file["url"], workflow_data_file["filepath"])
     
     # Load inputs
     inputs = json_data["Metadata"]["run"]["inputs"]
     # Download inputs
     for iinput in inputs:
-        if iinput["url"] and iinput["path"]:
-            download_data(iinput["url"], iinput["path"])
+        if iinput["url"] and iinput["filepath"]:
+            download_data(iinput["url"], iinput["filepath"])
 
     # Load outputs
     outputs = json_data["Metadata"]["run"]["outputs"]
     # Download outputs
     for ioutput in outputs:
-        if ioutput["url"] and ioutput["path"]:
-            download_data(ioutput["url"], ioutput["path"])
+        if ioutput["url"] and ioutput["filepath"]:
+            download_data(ioutput["url"], ioutput["filepath"])
 
     # Load code
     # Download code
@@ -149,8 +149,8 @@ if __name__ == "__main__":
 
     # Compute filenames and size of outputs
     for ioutput in json_data["Metadata"]["run"]["outputs"]:
-        ioutput["filename"] = os.path.basename(ioutput["path"])
-        ioutput["size"] = os.path.getsize(ioutput["path"])
+        ioutput["filename"] = os.path.basename(ioutput["filepath"])
+        ioutput["size"] = os.path.getsize(ioutput["filepath"])
 
     with open(str(json_data["Metadata"]["workdir"] + "/data-report.json"), "w") as f:
         json.dump(json_data, f, indent=4) 
