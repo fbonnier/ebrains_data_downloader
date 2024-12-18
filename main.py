@@ -87,6 +87,11 @@ if __name__ == "__main__":
     # Load workdir
     workdir = json_data["Metadata"]["workdir"]
 
+    # Create directories
+    os.mkdir(workdir + "/code/")
+    os.mkdir(workdir + "/inputs/")
+    os.mkdir(workdir + "/outputs/")
+
     # Load workflow
     workflow_run_file = json_data["Metadata"]["workflow"]["run"]
     workflow_data_file = json_data["Metadata"]["workflow"]["data"]
