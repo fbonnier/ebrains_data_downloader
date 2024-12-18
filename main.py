@@ -132,7 +132,7 @@ if __name__ == "__main__":
             os.system("arc -overwrite unarchive " + icode["filepath"] + " " + icode["path"])
 
         # Control code as output
-        control_foler = json_data["Metadata"]["workdir"] + "/outputs/" + icode["filepath"].split("/")[-1].split(".")[0]
+        control_foler = json_data["Metadata"]["run"]["code"]["path"].replace("code", "outputs")
         try:
             # Unpack control code as outputs
             shutil.unpack_archive(icode["filepath"], control_foler)
@@ -147,7 +147,7 @@ if __name__ == "__main__":
                 for filename in files:
                     relative_path = os.path.join( current_dir, filename )
                     absolute_path = os.path.abspath( relative_path )
-                    json_data["Metadata"]["run"]["outputs"].append({"url": None,  "path": str(absolute_path), "hash": None})
+                    json_data["Metadata"]["run"]["outputs"].append({"url": None,  "path": str(absolute_path), "filepath": absolute_path + filename, "hash": None})
                     # print (absolute_path)
         except Exception as e:
             print (e)
