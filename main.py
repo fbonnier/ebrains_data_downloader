@@ -190,13 +190,13 @@ if __name__ == "__main__":
     # Load code
     # Download code
     for icode in json_data["Metadata"]["run"]["code"]:
-        assert(icode["url"] != None)
+        assert icode["url"] != None
 
         if icode["url"] and icode["filepath"]:
             download_data(url=icode["url"], filepath=icode["filepath"])
         
         # Code must be archived
-        assert(isarchive(icode["filepath"]), str("Code " + icode["url"] + " is not an archive"))
+        assert isarchive(icode["filepath"]), str("Code " + icode["url"] + " is not an archive")
         
         # Unpack code to run
         icode["path"] = extract_archive(icode["filepath"], icode["path"])
