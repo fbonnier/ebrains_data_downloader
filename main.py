@@ -4,13 +4,51 @@ import argparse
 import json as json
 import warnings
 import urllib.request
-import zipfile
-import tarfile
-import rarfile
+import hashlib
 import shutil
-import re
 import traceback
 # from nilsimsa import Nilsimsa
+
+def isarchive(filepath:str):
+    toreturn = False
+    for iformat in shutil.get_unpack_formats():
+        if filepath.rsplit('.', 1)[1] in iformat:
+            toreturn = True
+
+    return toreturn
+    
+def extract_archive(filepath:str, destpath:str) ->str: 
+    # path = filepath.rsplit('.', 1)[0]
+    try:
+        shutil.unpack_archive(filepath, destpath)
+    except Exception as e:
+        print ("Shutil failed: " + str(e))
+        print ("Trying Archiver")
+        status = os.WEXITSTATUS(os.system("arc -overwrite unarchive " + filepath + " " + destpath))
+        if not status:
+            destpath = None
+            print("Unabled to extract " + filepath)
+    return destpath
+
+def collect_files(path):
+    newfiles = []
+
+    # Collect files in folder and subfolders
+    try:
+        for current_dir, subdirs, files in os.walk( path ):
+            for filename in files:
+                relative_path = os.path.join( current_dir, filename )
+                absolute_path = os.path.abspath( relative_path )
+                newfiles.append({   "url": None,\
+                                "path": str(absolute_path),\
+                                "filepath": str(absolute_path),\
+                                "hash": str(hashlib.md5(ioutput["url"].encode()).hexdigest()),\
+                                "filename": os.path.basename(absolute_path),\
+                                "size": os.path.getsize(absolute_path)})
+    except Exception as e:
+        print (e)
+
+    return newfiles
 
 # Compare report files for regression tests
 def compare_reports (test_report=None, reference_report=None):
@@ -98,9 +136,11 @@ if __name__ == "__main__":
     # Download workflow runfile
     if workflow_run_file["url"] and workflow_run_file["filepath"]:
         download_data(workflow_run_file["url"], workflow_run_file["filepath"])
+        workflow_run_file["path"] = workflow_run_file["filepath"]
     # Download workflow datafile
     if workflow_data_file["url"] and workflow_data_file["filepath"]:
         download_data(workflow_data_file["url"], workflow_data_file["filepath"])
+        workflow_data_file["path"] = workflow_data_file["filepath"]
     
     # Load inputs
     inputs = json_data["Metadata"]["run"]["inputs"]
@@ -108,6 +148,22 @@ if __name__ == "__main__":
     for iinput in inputs:
         if iinput["url"] and iinput["filepath"]:
             download_data(iinput["url"], iinput["filepath"])
+    # Extract archived inputs
+    for iinput in inputs:
+        if iinput["filepath"] and isarchive(iinput["filepath"]):
+            iinput["path"] = extract_archive(iinput["filepath"], iinput["path"])
+    # and collect extracted inputs
+    new_inputs = []
+    for iinput in inputs:
+        if iinput["filepath"] and isarchive(iinput["filepath"]):
+            new_inputs += collect_files(iinput["path"])
+    # Add new collected inputs to report
+    json_data["Metadata"]["run"]["inputs"] += new_inputs
+    # Remove archived inputs
+    for iinput in json_data["Metadata"]["run"]["inputs"]:
+        if iinput["filepath"] and isarchive(iinput["filepath"]) and iinput not in new_inputs:
+            json_data["Metadata"]["run"]["inputs"].remove(iinput)
+    
 
     # Load outputs
     outputs = json_data["Metadata"]["run"]["outputs"]
@@ -115,7 +171,22 @@ if __name__ == "__main__":
     for ioutput in outputs:
         if ioutput["url"] and ioutput["filepath"]:
             download_data(ioutput["url"], ioutput["filepath"])
-
+    # Extract archived outputs
+    for ioutput in outputs:
+        if ioutput["filepath"] and isarchive(ioutput["filepath"]):
+            ioutput["path"] = extract_archive(ioutput["filepath"], ioutput["path"])
+    # and collect extracted outputs
+    new_outputs = []
+    for ioutput in outputs:
+        if ioutput["filepath"] and isarchive(ioutput["filepath"]):
+            new_outputs += collect_files(ioutput["path"])
+    # Add new collected outputs to report
+    json_data["Metadata"]["run"]["outputs"] += new_outputs
+    # Remove archived outputs
+    for ioutput in json_data["Metadata"]["run"]["outputs"]:
+        if ioutput["filepath"] and isarchive(ioutput["filepath"]) and ioutput not in new_outputs:
+            json_data["Metadata"]["run"]["outputs"].remove(ioutput)
+    
     # Load code
     # Download code
     for icode in json_data["Metadata"]["run"]["code"]:
@@ -123,40 +194,28 @@ if __name__ == "__main__":
 
         if icode["url"] and icode["filepath"]:
             download_data(url=icode["url"], filepath=icode["filepath"])
-        try:
-            # Unpack code to run
-            shutil.unpack_archive(icode["filepath"], icode["path"])
-        except Exception as e:
-            print ("Shutil failed: " + str(e))
-            print ("Trying Archiver")
-            os.system("arc -overwrite unarchive " + icode["filepath"] + " " + icode["path"])
-
+        
+        # Code must be archived
+        assert(isarchive(icode["filepath"]), "Code " + icode["url"] + " is not an archive")
+        
+        # Unpack code to run
+        icode["path"] = extract_archive(icode["filepath"], icode["path"])
+        
         # Control code as output
         control_foler = icode["path"].replace("code", "outputs")
-        try:
-            # Unpack control code as outputs
-            shutil.unpack_archive(icode["filepath"], control_foler)
-        except Exception as e:
-            print ("Shutil failed for control group: " + str(e))
-            print ("Trying Archiver")
-            os.system("arc -overwrite unarchive " + icode["filepath"] + " " + control_foler)
-
+        # Unpack code as output
+        control_foler = extract_archive(icode["filepath"], control_foler)
+        
         # Add all files of code as potential outputs/results
-        try:
-            for current_dir, subdirs, files in os.walk( control_foler ):
-                for filename in files:
-                    relative_path = os.path.join( current_dir, filename )
-                    absolute_path = os.path.abspath( relative_path )
-                    json_data["Metadata"]["run"]["outputs"].append({"url": None,  "path": str(absolute_path), "filepath": str(absolute_path), "hash": None})
-                    # print (absolute_path)
-        except Exception as e:
-            print (e)
+        new_outputs = collect_files(control_foler)
+        json_data["Metadata"]["run"]["outputs"] += new_outputs
+        
+    # # Compute filenames and size of outputs
+    # for ioutput in json_data["Metadata"]["run"]["outputs"]:
+    #     ioutput["filename"] = os.path.basename(ioutput["filepath"])
+    #     ioutput["size"] = os.path.getsize(ioutput["filepath"])
 
-    # Compute filenames and size of outputs
-    for ioutput in json_data["Metadata"]["run"]["outputs"]:
-        ioutput["filename"] = os.path.basename(ioutput["filepath"])
-        ioutput["size"] = os.path.getsize(ioutput["filepath"])
-
+    # Write metadata to report
     with open(str(json_data["Metadata"]["workdir"] + "/data-report.json"), "w") as f:
         json.dump(json_data, f, indent=4) 
     # Exit Done ?
@@ -166,6 +225,5 @@ if __name__ == "__main__":
     # Regression tests
     if test:
         run_test(test=test)
-    
     
     sys.exit()
