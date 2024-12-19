@@ -9,7 +9,7 @@ import shutil
 import traceback
 # from nilsimsa import Nilsimsa
 
-def isarchive(filepath:str):
+def isarchive(filepath:str) -> bool :
     toreturn = False
     for iformat in shutil.get_unpack_formats():
         if filepath.rsplit('.', 1)[1] in iformat:
@@ -17,7 +17,7 @@ def isarchive(filepath:str):
 
     return toreturn
     
-def extract_archive(filepath:str, destpath:str) ->str: 
+def extract_archive(filepath:str, destpath:str) -> str : 
     # path = filepath.rsplit('.', 1)[0]
     try:
         shutil.unpack_archive(filepath, destpath)
@@ -196,7 +196,7 @@ if __name__ == "__main__":
             download_data(url=icode["url"], filepath=icode["filepath"])
         
         # Code must be archived
-        assert(isarchive(icode["filepath"]), "Code " + icode["url"] + " is not an archive")
+        assert(isarchive(icode["filepath"]), str("Code " + icode["url"] + " is not an archive"))
         
         # Unpack code to run
         icode["path"] = extract_archive(icode["filepath"], icode["path"])
