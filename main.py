@@ -42,7 +42,7 @@ def collect_files(path):
                 newfiles.append({   "url": None,\
                                 "path": str(absolute_path),\
                                 "filepath": str(absolute_path),\
-                                "hash": str(hashlib.md5(ioutput["url"].encode()).hexdigest()),\
+                                # "hash": str(hashlib.md5(ioutput["url"].encode()).hexdigest()),\
                                 "filename": os.path.basename(absolute_path),\
                                 "size": os.path.getsize(absolute_path)})
     except Exception as e:
@@ -171,6 +171,10 @@ if __name__ == "__main__":
     for ioutput in outputs:
         if ioutput["url"] and ioutput["filepath"]:
             download_data(ioutput["url"], ioutput["filepath"])
+            # Complete metadata
+            ioutput["filename"] = os.path.basename(ioutput["filepath"])
+            ioutput["size"] = os.path.getsize(ioutput["filepath"])
+
     # Extract archived outputs
     for ioutput in outputs:
         if ioutput["filepath"] and isarchive(ioutput["filepath"]):
