@@ -190,6 +190,9 @@ if __name__ == "__main__":
     for ioutput in json_data["Metadata"]["run"]["outputs"]:
         if ioutput["filepath"] and isarchive(ioutput["filepath"]) and ioutput not in new_outputs:
             json_data["Metadata"]["run"]["outputs"].remove(ioutput)
+    # Complete path as filepath for output files
+    for ioutput in  json_data["Metadata"]["run"]["outputs"]:
+        ioutput["path"] = ioutput["filepath"]
     
     # Load code
     # Download code
