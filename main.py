@@ -205,14 +205,15 @@ if __name__ == "__main__":
         # Unpack code to run
         icode["path"] = extract_archive(icode["filepath"], icode["path"])
         
-        # Control code as output
-        control_foler = icode["path"].replace("code", "outputs")
-        # Unpack code as output
-        control_foler = extract_archive(icode["filepath"], control_foler)
-        
-        # Add all files of code as potential outputs/results
-        new_outputs = collect_files(control_foler)
-        json_data["Metadata"]["run"]["outputs"] += new_outputs
+        # Control code as output, if outputs are not provided
+        if not json_data["Metadata"]["run"]["outputs"]:
+            control_foler = icode["path"].replace("code", "outputs")
+            # Unpack code as output
+            control_foler = extract_archive(icode["filepath"], control_foler)
+            
+            # Add all files of code as potential outputs/results
+            new_outputs = collect_files(control_foler)
+            json_data["Metadata"]["run"]["outputs"] += new_outputs
         
     # # Compute filenames and size of outputs
     # for ioutput in json_data["Metadata"]["run"]["outputs"]:
