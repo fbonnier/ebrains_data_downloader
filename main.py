@@ -120,13 +120,13 @@ if __name__ == "__main__":
     ## The output report will be compared to this reference report
     parser.add_argument("--test", type=str, metavar="Reference report", nargs=1, dest="test", default="", help="Reference report for regression tests. The output report will be compared to this reference report. JSON file")
 
+    parsed, args = parser.parse_known_args()
 
-    args = parser.parse_args()
-    test = args.test[0] if args.test else None
-    outputs_local = args.outputs[0] if args.outputs else None
+    test = str(parsed.test[0]) if parsed.test else None
+    outputs_local = parsed.outputs[0] if parsed.outputs else None
 
     # Load JSON data
-    json_file = args.json[0]
+    json_file = parsed.json[0]
     if not json_file:
         print ("Fatal Error:  Invalid JSON File, please give a valid JSON file using \"--json <path-to-file>\"")
         exit(1)
