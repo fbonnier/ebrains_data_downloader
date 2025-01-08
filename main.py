@@ -187,7 +187,8 @@ if __name__ == "__main__":
         #TODO support multiple local outputs
         if os.path.exists(str(outputs_local)):
             outputs.append ({"url": None,\
-                             "path": workdir + "/outputs/" + str(os.path.basename(outputs_local)), "filepath": str(os.path.abspath(outputs_local).split(".")[0]),\
+                             "path": workdir + "/outputs/" + str(os.path.basename(outputs_local).split(".")[0]),\
+                             "filepath": str(os.path.abspath(outputs_local)),\
                              "hash": None,\
                              "filename": str(os.path.basename(outputs_local)),\
                              "size": str(os.path.getsize(outputs_local))})
