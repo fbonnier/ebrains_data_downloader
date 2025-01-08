@@ -21,9 +21,7 @@ def isarchive(filepath:str) -> bool :
             if filepath.rsplit('.', 1)[1] in iformat:
                 toreturn = True
         except:
-            continue
-    
-
+            toreturn = False
     return toreturn
     
 def extract_archive(filepath:str, destpath:str) -> str : 
