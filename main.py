@@ -113,7 +113,7 @@ if __name__ == "__main__":
     parser.add_argument("--json", type=argparse.FileType('r'), metavar="JSON Metadata file", nargs=1, dest="json", default="",\
     help="JSON File that contains Metadata of the HBP model to run", required=True)
 
-    parser.add_argument("--outputs", type=argparse.FileType('r'), metavar="Local output file", nargs=1, dest="outputs", default="",\
+    parser.add_argument("--outputs", type=str, metavar="Local output file", nargs=1, dest="outputs", default="",\
     help="JSON File that contains Metadata of the HBP model to run", required=True)
     
     ## Reference report location for regressions test
