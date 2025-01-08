@@ -2,6 +2,7 @@
 
 JSON_PATH=""
 TEST=""
+OUTPUTS=""
 
 NARGS=$(($#-1))
 
@@ -11,6 +12,10 @@ for (( iarg=1; iarg<=NARGS; iarg++)); do
     if [ "${!iarg}" == "--json" ]
         then
             JSON_PATH=${!jarg}
+    fi
+    if [ "${!iarg}" == "--outputs" ]
+        then
+            OUTPUTS=${!jarg}
     fi
     if [ "${!iarg}" == "--test" ]
         then
@@ -25,6 +30,10 @@ if [ "${JSON_PATH}" == "" ]; then
     echo "--json: path of the required metadata JSON file"
 else
     TORUN="${TORUN} --json=${JSON_PATH}"
+fi
+
+if [ "${OUTPUTS}" != "" ]; then
+    TORUN="${TORUN} --outputs=${OUTPUTS}"
 fi
 
 if [ "${TEST}" != "" ]; then

@@ -8,6 +8,11 @@ import hashlib
 import shutil
 import traceback
 # from nilsimsa import Nilsimsa
+file_default_value = {"url": None, "path": None, "filepath": None, "hash": None, "filename": None, "size": None}
+
+
+def get_dataset_from_local_file(output_local_file):
+    return
 
 def isarchive(filepath:str) -> bool :
     toreturn = False
@@ -107,6 +112,9 @@ if __name__ == "__main__":
 
     parser.add_argument("--json", type=argparse.FileType('r'), metavar="JSON Metadata file", nargs=1, dest="json", default="",\
     help="JSON File that contains Metadata of the HBP model to run", required=True)
+
+    parser.add_argument("--outputs", type=argparse.FileType('r'), metavar="Local output file", nargs=1, dest="outputs", default="",\
+    help="JSON File that contains Metadata of the HBP model to run", required=True)
     
     ## Reference report location for regressions test
     ## The output report will be compared to this reference report
@@ -114,7 +122,9 @@ if __name__ == "__main__":
 
 
     args = parser.parse_args()
-    test = None
+    test = args.test[0] if args.test else None
+    outputs_local = args.outputs[0] if args.outputs else None
+
     # Load JSON data
     json_file = args.json[0]
     if not json_file:
@@ -142,7 +152,9 @@ if __name__ == "__main__":
         download_data(workflow_data_file["url"], workflow_data_file["filepath"])
         workflow_data_file["path"] = workflow_data_file["filepath"]
     
-    # Load inputs
+####################################################################################################
+    # Load inputs                                                                                  #
+####################################################################################################
     inputs = json_data["Metadata"]["run"]["inputs"]
     # Download inputs
     for iinput in inputs:
@@ -164,9 +176,22 @@ if __name__ == "__main__":
         if iinput["filepath"] and isarchive(iinput["filepath"]) and iinput not in new_inputs:
             json_data["Metadata"]["run"]["inputs"].remove(iinput)
     
+####################################################################################################
 
-    # Load outputs
+####################################################################################################
+    # Load outputs                                                                                 #
+####################################################################################################
     outputs = json_data["Metadata"]["run"]["outputs"]
+    # Load local outputs
+    if outputs_local:
+        #TODO support multiple local outputs
+        if os.path.exists(outputs_local):
+            outputs.append ({"url": None,\
+                             "path": workdir + "/outputs/" + os.path.basename(outputs_local), "filepath": os.path.abspath(outputs_local).split(".")[0],\
+                             "hash": None,\
+                             "filename": os.path.basename(outputs_local),\
+                             "size": os.path.getsize(outputs_local)})
+
     # Download outputs
     for ioutput in outputs:
         if ioutput["url"] and ioutput["filepath"]:
@@ -193,8 +218,13 @@ if __name__ == "__main__":
     # Complete path as filepath for output files
     for ioutput in  json_data["Metadata"]["run"]["outputs"]:
         ioutput["path"] = ioutput["filepath"]
-    
-    # Load code
+
+####################################################################################################
+
+
+####################################################################################################
+    # Load code                                                                                    #
+####################################################################################################
     # Download code
     for icode in json_data["Metadata"]["run"]["code"]:
         assert icode["url"] != None
@@ -218,6 +248,8 @@ if __name__ == "__main__":
             new_outputs = collect_files(control_foler)
             json_data["Metadata"]["run"]["outputs"] += new_outputs
         
+####################################################################################################
+
     # # Compute filenames and size of outputs
     # for ioutput in json_data["Metadata"]["run"]["outputs"]:
     #     ioutput["filename"] = os.path.basename(ioutput["filepath"])
