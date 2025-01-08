@@ -123,7 +123,7 @@ if __name__ == "__main__":
     parsed, args = parser.parse_known_args()
 
     test = str(parsed.test[0]) if parsed.test else None
-    outputs_local = parsed.outputs[0] if parsed.outputs else None
+    outputs_local = str(parsed.outputs[0]) if parsed.outputs else None
 
     # Load JSON data
     json_file = parsed.json[0]
