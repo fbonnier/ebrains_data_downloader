@@ -17,8 +17,12 @@ def get_dataset_from_local_file(output_local_file):
 def isarchive(filepath:str) -> bool :
     toreturn = False
     for iformat in shutil.get_unpack_formats():
-        if filepath.rsplit('.', 1)[1] in iformat:
-            toreturn = True
+        try:
+            if filepath.rsplit('.', 1)[1] in iformat:
+                toreturn = True
+        except:
+            continue
+    
 
     return toreturn
     
