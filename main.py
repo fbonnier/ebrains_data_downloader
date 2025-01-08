@@ -197,9 +197,6 @@ if __name__ == "__main__":
         else:
             print ("Local outputs do not exist, check path" + str(outputs_local))
 
-    print("Outputs 1 -- should contain local outputs")  
-    print(outputs)
-
     # Download outputs
     for ioutput in outputs:
         if ioutput["url"] and ioutput["filepath"]:
@@ -207,41 +204,26 @@ if __name__ == "__main__":
             # Complete metadata
             ioutput["filename"] = os.path.basename(ioutput["filepath"])
             ioutput["size"] = os.path.getsize(ioutput["filepath"])
-    
-    print("Outputs 2 -- should contain local outputs")  
-    print(outputs)
-    
+        
     # Extract archived outputs
     for ioutput in outputs:
         if ioutput["filepath"] and isarchive(ioutput["filepath"]):
             ioutput["path"] = extract_archive(ioutput["filepath"], ioutput["path"])
     
-    print("Outputs 3 -- should contain outputs archive with correct paths")  
-    print(outputs)
-
     # and collect extracted outputs
     new_outputs = []
     for ioutput in outputs:
         if ioutput["filepath"] and isarchive(ioutput["filepath"]):
             new_outputs += collect_files(ioutput["path"])
     
-    print("Outputs 4 -- should contain new extracted outputs")  
-    print(new_outputs)
-
     # Add new collected outputs to report
     json_data["Metadata"]["run"]["outputs"] += new_outputs
-
-    print("Outputs 5 -- should all extracted outputs")  
-    print(json_data["Metadata"]["run"]["outputs"])
 
     # Remove archived outputs
     for ioutput in json_data["Metadata"]["run"]["outputs"]:
         if ioutput["filepath"] and isarchive(ioutput["filepath"]) and ioutput not in new_outputs:
             json_data["Metadata"]["run"]["outputs"].remove(ioutput)
     
-    print("Outputs 6 -- should all outputs without original archives")  
-    print(json_data["Metadata"]["run"]["outputs"])
-
     # Complete path as filepath for output files
     for ioutput in  json_data["Metadata"]["run"]["outputs"]:
         ioutput["path"] = ioutput["filepath"]
