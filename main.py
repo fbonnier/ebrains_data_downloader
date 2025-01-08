@@ -185,12 +185,12 @@ if __name__ == "__main__":
     # Load local outputs
     if outputs_local:
         #TODO support multiple local outputs
-        if os.path.exists(outputs_local):
+        if os.path.exists(str(outputs_local)):
             outputs.append ({"url": None,\
-                             "path": workdir + "/outputs/" + os.path.basename(outputs_local), "filepath": os.path.abspath(outputs_local).split(".")[0],\
+                             "path": workdir + "/outputs/" + str(os.path.basename(outputs_local)), "filepath": str(os.path.abspath(outputs_local).split(".")[0]),\
                              "hash": None,\
-                             "filename": os.path.basename(outputs_local),\
-                             "size": os.path.getsize(outputs_local)})
+                             "filename": str(os.path.basename(outputs_local)),\
+                             "size": str(os.path.getsize(outputs_local))})
 
     # Download outputs
     for ioutput in outputs:
