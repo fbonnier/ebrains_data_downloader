@@ -191,6 +191,9 @@ if __name__ == "__main__":
                              "hash": None,\
                              "filename": str(os.path.basename(outputs_local)),\
                              "size": str(os.path.getsize(outputs_local))})
+        else:
+            print ("Local outputs do not exist, check path" + str(outputs_local))
+
     print("Outputs 1 -- should contain local outputs")  
     print(outputs)
 
