@@ -2,12 +2,10 @@ import os
 import sys
 import argparse
 import json as json
-import warnings
 import urllib.request
-import hashlib
 import shutil
 import traceback
-# from nilsimsa import Nilsimsa
+
 file_default_value = {"url": None, "path": None, "filepath": None, "hash": None, "filename": None, "size": None}
 
 
@@ -24,8 +22,7 @@ def isarchive(filepath:str) -> bool :
             toreturn = False
     return toreturn
     
-def extract_archive(filepath:str, destpath:str) -> str : 
-    # path = filepath.rsplit('.', 1)[0]
+def extract_archive(filepath:str, destpath:str) -> str :
     try:
         shutil.unpack_archive(filepath, destpath)
     except Exception as e:
@@ -49,7 +46,6 @@ def collect_files(path):
                 newfiles.append({   "url": None,\
                                 "path": str(absolute_path),\
                                 "filepath": str(absolute_path),\
-                                # "hash": str(hashlib.md5(ioutput["url"].encode()).hexdigest()),\
                                 "filename": os.path.basename(absolute_path),\
                                 "size": os.path.getsize(absolute_path)})
     except Exception as e:
@@ -97,15 +93,6 @@ def download_data (url: str, filepath: str):
     except Exception as e:
         print (str("".join(traceback.format_exception(e))))
 
-# def compute_hash (filepath: str) -> str:
-#     filehash = None
-#     try:
-#         all_info = os.path.basename(filepath) + str(os.path.getsize(filepath))
-#         filehash = Nilsimsa(all_info).hexdigest()
-#     except Exception as e:
-#         print (e)
-
-#     return filehash
 
 
 if __name__ == "__main__":
