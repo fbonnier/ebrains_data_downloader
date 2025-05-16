@@ -182,7 +182,7 @@ if __name__ == "__main__":
                              "filename": str(os.path.basename(outputs_local)),\
                              "size": str(os.path.getsize(outputs_local))})
         else:
-            print ("Local outputs do not exist, check path" + str(outputs_local))
+            print ("Local outputs do not exist, check path " + str(outputs_local))
 
     # Download outputs
     for ioutput in outputs:
@@ -252,7 +252,7 @@ if __name__ == "__main__":
     #     ioutput["size"] = os.path.getsize(ioutput["filepath"])
 
     # Write metadata to report
-    with open(str(json_data["Metadata"]["workdir"] + "/data-report.json"), "w") as f:
+    with open(str("data-report.json"), "w") as f:
         json.dump(json_data, f, indent=4) 
     # Exit Done ?
     if "data-report.json" in os.listdir(json_data["Metadata"]["workdir"]):
