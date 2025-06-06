@@ -41,13 +41,13 @@ def collect_files(path):
     try:
         for current_dir, subdirs, files in os.walk( path ):
             for filename in files:
-                relative_path = os.path.join( current_dir, filename )
-                absolute_path = os.path.abspath( relative_path )
+                relative_file_path = os.path.join( current_dir, filename )
+                # absolute_path = os.path.abspath( relative_file_path )
                 newfiles.append({   "url": None,\
-                                "path": str(absolute_path),\
-                                "filepath": str(absolute_path),\
-                                "filename": os.path.basename(absolute_path),\
-                                "size": os.path.getsize(absolute_path)})
+                                "path": str(current_dir),\
+                                "filepath": str(relative_file_path),\
+                                "filename": os.path.basename(filename),\
+                                "size": os.path.getsize(relative_file_path)})
     except Exception as e:
         print (e)
 
@@ -177,7 +177,7 @@ if __name__ == "__main__":
         if os.path.exists(str(outputs_local)):
             outputs.append ({"url": None,\
                              "path": workdir + "/outputs/" + str(os.path.basename(outputs_local).split(".")[0]),\
-                             "filepath": str(os.path.abspath(outputs_local)),\
+                             "filepath": workdir + "/outputs/" + str(os.path.basename(outputs_local)),\
                              "hash": None,\
                              "filename": str(os.path.basename(outputs_local)),\
                              "size": str(os.path.getsize(outputs_local))})
