@@ -176,11 +176,13 @@ if __name__ == "__main__":
         #TODO support multiple local outputs
         if os.path.exists(str(outputs_local)):
             outputs.append ({"url": None,\
-                             "path": workdir + "/outputs/" + str(os.path.basename(outputs_local).split(".")[0]),\
-                             "filepath": workdir + "/outputs/" + str(os.path.basename(outputs_local)),\
+                             "path": "outputs/" + str(os.path.basename(outputs_local).split(".")[0]),\
+                             "filepath": "outputs/" + str(os.path.basename(outputs_local)),\
                              "hash": None,\
                              "filename": str(os.path.basename(outputs_local)),\
                              "size": str(os.path.getsize(outputs_local))})
+            # Move outputs_local to outputs
+            shutil.move(outputs_local, "outputs/" + str(os.path.basename(outputs_local)))
         else:
             print ("Local outputs do not exist, check path " + str(outputs_local))
 
