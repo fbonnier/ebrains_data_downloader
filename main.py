@@ -87,6 +87,8 @@ def run_test (test=None):
 def download_data (url: str, filepath: str):
     
     try:
+        print (os.getcwd())
+        print (os.listdir())
         with urllib.request.urlopen(url) as response:
             with open(filepath, "wb+") as out_file:
                 print ("Downloading " + str(url) + " to " + str(filepath) + "\n")
