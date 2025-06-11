@@ -182,7 +182,7 @@ if __name__ == "__main__":
                              "filename": str(os.path.basename(outputs_local)),\
                              "size": str(os.path.getsize(outputs_local))})
             # Move outputs_local to outputs
-            shutil.copy(outputs_local, "outputs/" + str(os.path.basename(outputs_local)))
+            shutil.copy(outputs_local, "outputs/")
         else:
             print ("Local outputs do not exist, check path " + str(outputs_local))
 
