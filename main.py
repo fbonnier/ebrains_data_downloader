@@ -87,8 +87,6 @@ def run_test (test=None):
 def download_data (url: str, filepath: str):
     
     try:
-        print (os.getcwd())
-        print (os.listdir())
         with urllib.request.urlopen(url) as response, open(filepath, "wb+") as out_file:
             print ("Downloading " + str(url) + " to " + str(filepath) + "\n")
             data = response.read() # a `bytes` object
@@ -263,7 +261,7 @@ if __name__ == "__main__":
     with open(str("data-report.json"), "w") as f:
         json.dump(json_data, f, indent=4) 
     # Exit Done ?
-    if "data-report.json" in os.listdir(json_data["Metadata"]["workdir"]):
+    if "data-report.json" in os.listdir():
         print ("Download data report File created successfully")
     
     # Regression tests
