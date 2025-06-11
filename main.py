@@ -87,11 +87,12 @@ def run_test (test=None):
 def download_data (url: str, filepath: str):
     
     try:
-        with urllib.request.urlopen(url) as response, open(filepath, 'wb+') as out_file:
-            print ("Downloading " + str(url) + " to " + str(filepath) + "\n")
-            data = response.read() # a `bytes` object
-            out_file.write(data)
-            print ("Download completed: " + str(filepath) + "\n")
+        with urllib.request.urlopen(url) as response:
+            with open(filepath, "wb+") as out_file:
+                print ("Downloading " + str(url) + " to " + str(filepath) + "\n")
+                data = response.read() # a `bytes` object
+                out_file.write(data)
+                print ("Download completed: " + str(filepath) + "\n")
     except Exception as e:
         print (str("".join(traceback.format_exception(e))))
 
