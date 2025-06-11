@@ -89,13 +89,12 @@ def download_data (url: str, filepath: str):
     try:
         print (os.getcwd())
         print (os.listdir())
-        with urllib.request.urlopen(url) as response:
-            with open(filepath, "wb+") as out_file:
-                print ("Downloading " + str(url) + " to " + str(filepath) + "\n")
-                data = response.read() # a `bytes` object
-                out_file.write(data)
-                out_file.close()
-                print ("Download completed: " + str(filepath) + "\n")
+        with urllib.request.urlopen(url) as response, open(filepath, "wb+") as out_file:
+            print ("Downloading " + str(url) + " to " + str(filepath) + "\n")
+            data = response.read() # a `bytes` object
+            out_file.write(data)
+            out_file.close()
+            print ("Download completed: " + str(filepath) + "\n")
     except Exception as e:
         print (str("".join(traceback.format_exception(e))))
 
@@ -131,9 +130,10 @@ if __name__ == "__main__":
     workdir = json_data["Metadata"]["workdir"]
 
     # # Create directories
-    # os.mkdir(workdir + "/code/")
-    # os.mkdir(workdir + "/inputs/")
-    # os.mkdir(workdir + "/outputs/")
+    os.mkdir(workdir + "code/")
+    os.mkdir(workdir + "inputs/")
+    os.mkdir(workdir + "outputs/")
+    os.mkdir(workdir + "res_outputs/")
 
     # Load workflow
     workflow_run_file = json_data["Metadata"]["workflow"]["run"]
