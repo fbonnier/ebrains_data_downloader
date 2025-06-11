@@ -87,7 +87,7 @@ def run_test (test=None):
 def download_data (url: str, filepath: str):
     
     try:
-        with urllib.request.urlopen(url) as response, open(filepath, 'wb') as out_file:
+        with urllib.request.urlopen(url) as response, open(filepath, 'wb+') as out_file:
             print ("Downloading " + str(url) + " to " + str(filepath) + "\n")
             data = response.read() # a `bytes` object
             out_file.write(data)
