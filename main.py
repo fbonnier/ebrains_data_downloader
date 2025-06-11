@@ -92,6 +92,7 @@ def download_data (url: str, filepath: str):
                 print ("Downloading " + str(url) + " to " + str(filepath) + "\n")
                 data = response.read() # a `bytes` object
                 out_file.write(data)
+                out_file.close()
                 print ("Download completed: " + str(filepath) + "\n")
     except Exception as e:
         print (str("".join(traceback.format_exception(e))))
