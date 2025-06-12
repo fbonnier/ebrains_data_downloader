@@ -184,7 +184,7 @@ if __name__ == "__main__":
                              "filepath": "outputs/" + str(os.path.basename(outputs_local)),\
                              "hash": None,\
                              "filename": str(os.path.basename(outputs_local)),\
-                             "size": str(os.path.getsize(outputs_local))})
+                             "size": os.path.getsize(outputs_local)})
             # Move outputs_local to outputs
             shutil.copy(outputs_local, "outputs/" + str(os.path.basename(outputs_local)))
         else:
